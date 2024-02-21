@@ -12,6 +12,8 @@ public class TetrisBlock : MonoBehaviour
     public static int height = 20;
     public static int width = 10;
     private static Transform[,] grid = new Transform[width, height];
+
+  
     void Start()
     {
 
@@ -90,6 +92,7 @@ public class TetrisBlock : MonoBehaviour
             Destroy(grid[j,i].gameObject);
             grid[j, i] = null;
         }
+        GameManager.I.addScore(10);
     }
 
     void RowDown(int i)
