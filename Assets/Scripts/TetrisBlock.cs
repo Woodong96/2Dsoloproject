@@ -80,7 +80,7 @@ public class TetrisBlock : MonoBehaviour
             if (grid[j,i] ==null)
                 return false;
         }
-        return false;
+        return true;
     }
 
     void DeleteLine(int i)
