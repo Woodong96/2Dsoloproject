@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TetrisBlock : MonoBehaviour
 {
-
+    public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 1.0f;
     public static int height = 20;
@@ -32,6 +32,15 @@ public class TetrisBlock : MonoBehaviour
             if (!ValidMove())
             {
                 transform.position -= new Vector3(1, 0, 0);
+            }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+            if (!ValidMove())
+            {
+                transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
             }
         }
 
